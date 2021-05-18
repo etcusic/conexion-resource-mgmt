@@ -2,7 +2,6 @@ class Deck < ApplicationRecord
     has_many :cards
     validates :name, presence: true
 
-    # move this logic to a module and add to API model ???
     def with_cards
         @deck = {
             id: self.id,
