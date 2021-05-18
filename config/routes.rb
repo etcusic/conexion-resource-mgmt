@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :cards
-  resources :decks
   root 'welcome#index'
+  resources :decks
+  resources :cards
   
 end
