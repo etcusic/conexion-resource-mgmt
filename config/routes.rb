@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :users
-  root 'welcome#index'
-  get '/api/decks' => "api#decks"
-  
+  root 'application#home'
+ 
   # resources should go under users once added
+  resources :users
   resources :decks
   resources :cards
-  
+   
+  get '/api/decks' => "api#decks"
+
 end
