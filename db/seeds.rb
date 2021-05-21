@@ -1,3 +1,4 @@
+# rails g resource User name:string email:string password_digest:string uid:string image:string admin:boolean
 # rails g resource Deck name:string level:integer
 # rails g resource Card deck:belongs_to english:string spanish:string
 
