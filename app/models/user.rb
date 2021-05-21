@@ -8,7 +8,7 @@ class User < ApplicationRecord
     def self.new_user_oauth
         # need to account for failed user creation
         password = SecureRandom.hex(10)
-        binding.pry
+        # binding.pry
         @user = User.create(
             uid: auth['uid'],
             email: auth['info']['email'],
@@ -17,7 +17,7 @@ class User < ApplicationRecord
             password: password,
             password_confirmation: password
         )
-        binding.pry
+        # binding.pry
     end
 
 end
