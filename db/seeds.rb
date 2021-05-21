@@ -2,6 +2,8 @@
 # rails g resource Deck name:string level:integer
 # rails g resource Card deck:belongs_to english:string spanish:string
 
+User.create(name: "Kermit Frog", email: "kermit_frog@gmail", password: "password")
+
 ANIMALS_AND_BUGS = [
     [ "beak", "pico" ],
 	[ "bee", "la abeja" ],
