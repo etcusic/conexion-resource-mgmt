@@ -5,31 +5,31 @@ class SessionsController < ApplicationController
     def new
     end
 
-    # def create
-    #     @user = User.find_by(email: session_params[:email])
-    #     if @user && @user.authenticate(session_params[:password])
-    #         initialize_session
-    #         redirect_to current_user.url
-    #     else
-    #         flash[:error] = "Invalid email or password. Please try again."
-    #         redirect_to '/login'
-    #     end
-    # end
+    def create
+        @user = User.find_by(email: session_params[:email])
+        if @user && @user.authenticate(session_params[:password])
+            initialize_session
+            redirect_to user_path(@user)
+        else
+            flash[:error] = "Invalid email or password. Please try again."
+            redirect_to '/login'
+        end
+    end
 
-    # def create_with_omniauth
-    #     @user = User.find_by(email: auth['info']['email'])
-    #     #does this account for invalid data sent from facebook or wherever?
-    #     if !@user
-    #         User.new_user_omni
-    #     end
-    #     initialize_session
-    #     redirect_to @user.url
-    # end
+    def create_with_omniauth
+        @user = User.find_by(email: auth['info']['email'])
+        #does this account for invalid data sent from facebook or wherever?
+        if !@user
+            User.new_user_oauth
+        end
+        initialize_session
+        redirect_to user_path(@user)
+    end
 
-    # def destroy
-    #     session.delete(:user_id)
-    #     redirect_to '/'
-    # end
+    def destroy
+        session.delete(:user_id)
+        redirect_to '/'
+    end
 
     private
 
@@ -41,8 +41,8 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
     end
 
-    # def auth
-    #     request.env['omniauth.auth']
-    # end
+    def auth
+        request.env['omniauth.auth']
+    end
     
 end
