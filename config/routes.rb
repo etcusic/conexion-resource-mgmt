@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :decks
   resources :cards
+  resources :wait_time, only: [:index, :create]
    
   get '/api/decks' => "api#decks"
 
