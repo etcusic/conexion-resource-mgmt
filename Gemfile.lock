@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/macournoyer/thin.git
-  revision: 0712d603a31d97b9fa8a0260da400da2e4217d60
-  specs:
-    thin (1.8.1)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,25 +80,27 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
-    daemons (1.4.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
-    eventmachine (1.2.7)
     faker (2.18.0)
       i18n (>= 1.6, < 2)
-    faraday (1.4.1)
+    faraday (1.4.2)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
-    ffi (1.15.0)
+    ffi (1.15.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -127,15 +120,13 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.7)
-    nokogiri (1.11.5)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.11.5-x86_64-darwin)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -250,7 +241,7 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    websocket-driver (0.7.3)
+    websocket-driver (0.7.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
@@ -281,7 +272,6 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  thin!
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

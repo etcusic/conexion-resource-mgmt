@@ -30,8 +30,6 @@ gem 'pry'
 gem 'faker'
 gem 'dotenv-rails'
 
-gem 'thin', git: 'https://github.com/macournoyer/thin.git'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

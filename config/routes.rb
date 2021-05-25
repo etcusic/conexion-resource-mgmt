@@ -7,7 +7,9 @@ Rails.application.routes.draw do
  
   # resources should go under users once added
   resources :users do 
-    resources :decks
+    resources :decks do 
+      resources :cards
+    end
   end
   resources :decks, only: [:index]
   resources :cards, only: [:index]
