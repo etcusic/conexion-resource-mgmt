@@ -273,3 +273,5 @@ make_set("around the house", AROUND_THE_HOUSE)
 make_set("cooking", COOKING)
 make_set("idioms", IDIOMS)
 make_verb_sets(COMMON_AR_VERBS)
+
+WaitTime.create(seconds: 10)
