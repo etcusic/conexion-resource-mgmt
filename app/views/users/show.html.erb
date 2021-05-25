@@ -2,6 +2,6 @@
 <h2>Flash Card Sets:</h2>
 <% @user.decks.map do |deck| %>
     <li>
-        <%= link_to deck.name %>
+        <%= link_to deck.name, user_deck_path(@user, deck) %>
     </li>
 <% end %>
