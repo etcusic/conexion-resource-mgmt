@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
  
   # resources should go under users once added
-  resources :users
-  resources :decks
-  resources :cards
+  resources :users do 
+    resources :decks
+  end
+  resources :decks, only: [:index]
+  resources :cards, only: [:index]
   resources :wait_time, only: [:index, :create]
    
   get '/api/decks' => "api#decks"
