@@ -1,10 +1,37 @@
 <h2>_partial</h2>
 
 <%= form_with model: [current_user, @deck], local: true do |f| %>
+    <%= f.label :name, "Name: " %>
+    <%= f.text_field :name %><br>
 
+    <table>
+        Cards:
+        <thead>
+            <tr>
+                <td>English:</td>
+                <td>Spanish:</td>
+            </tr>
+        </thead>
 
+        <tbody id="nested-cards-table" class="fields">
+            <%= f.fields_for :cards do |ff| %>
+                <tr class="card-row" key=<%= ff.index %>>
+                    <td>
+                        <%= ff.text_field :english %>
+                    </td>
+                    <td>
+                        <%= ff.text_field :spanish %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    
+
+    <%= f.submit "Submit Flash Cards" %>
     
 <% end %>
 
 <br><br>
 
+<button id="add-card-button">Add Card</button>
