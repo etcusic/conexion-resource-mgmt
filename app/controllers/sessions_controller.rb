@@ -17,18 +17,6 @@ class SessionsController < ApplicationController
         end
     end
 
-    def create_with_omniauth
-        # binding.pry
-        @user = User.find_by(email: auth['info']['email'])
-        #does this account for invalid data sent from facebook or wherever?
-        if !@user
-            @user = User.new_user_oauth
-        end
-        # binding.pry
-        initialize_session
-        redirect_to user_path(@user)
-    end
-
     def destroy
         session.delete(:user_id)
         redirect_to '/'
@@ -42,10 +30,6 @@ class SessionsController < ApplicationController
 
     def initialize_session
         session[:user_id] = @user.id
-    end
-
-    def auth
-        request.env['omniauth.auth']
     end
     
 end
