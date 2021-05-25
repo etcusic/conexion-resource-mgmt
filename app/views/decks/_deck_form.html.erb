@@ -1,11 +1,19 @@
-<h2>_partial</h2>
-
 <%= form_with model: [current_user, @deck], local: true do |f| %>
     <%= f.label :name, "Name: " %>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name %>
 
+    <%= f.label :level, "Level: " %>
+    <%= f.number_field :level, in: 1..8, step: 1 %>
+
+    <% if current_user.admin %>
+        <%= f.label :admin_approved, "Aprroved: " %>
+        <%= f.check_box :admin_approved %>
+    <% end %>
+
+    <br><br>
+
+    <h3><strong>CARDS:</strong></h3>
     <table>
-        Cards:
         <thead>
             <tr>
                 <td>English:</td>

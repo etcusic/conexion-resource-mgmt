@@ -235,7 +235,7 @@ COMMON_AR_VERBS = [
 # Deck :name, :level || Card :english, :spanish, :set_id
 
 def make_set (deck_name, array)
-    deck = Deck.create(user_id: 1, name: deck_name, level: 1)
+    deck = Deck.create(user_id: 1, name: deck_name, level: 1, admin_approved: true)
     array.each do |arr|
         deck.cards.build({english: arr[0], spanish: arr[1]}).save
     end
