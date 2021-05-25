@@ -5,3 +5,7 @@
         <%= link_to deck.name, user_deck_path(@user, deck) %>
     </li>
 <% end %>
+
+
+<br><br>
+<button><%= link_to "Create Set", new_user_deck_path(@user) %></button>

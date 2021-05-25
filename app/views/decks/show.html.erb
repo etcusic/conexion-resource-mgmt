@@ -1,1 +1,20 @@
 <h2><%= @deck.name %></h2>
+
+<table>
+    <tbody>
+        <tr>
+            <td>ENGLISH:</td>
+            <td>SPANISH:</td>
+        </tr>
+
+        <% @deck.cards.map do |card| %>
+            <tr>
+                <td><%= card.english %></td>
+                <td><%= card.spanish %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br><br>
+<button><%= link_to "Edit Set", edit_user_deck_path(@deck.user, @deck) %></button>
