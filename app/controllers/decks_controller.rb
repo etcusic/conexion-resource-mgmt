@@ -26,12 +26,11 @@ class DecksController < ApplicationController
     end
 
     def update
-        deck_params
-        # if @appt.update(deck_params)
-        #     redirect_to 
-        # else
-        #     render :edit
-        # end
+        if @deck.update(deck_params)
+            redirect_to user_path(current_user)
+        else
+            render :edit
+        end
     end
 
     def destroy
@@ -42,7 +41,10 @@ class DecksController < ApplicationController
     private 
 
     def deck_params
-        binding.pry
+        params.require(:deck).permit(
+            :name, :level, :admin_approved,
+            cards_attributes: [ :id, :english, :spanish, :_destroy ],
+          )
     end
 
     def deck

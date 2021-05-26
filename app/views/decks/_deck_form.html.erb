@@ -24,7 +24,6 @@
         <tbody id="nested-cards-table" class="fields">
             <%= f.fields_for :cards do |ff| %>
                 <%= render 'card_fields', ff: ff %>
-                
             <% end %>
         </tbody>
     </table>
