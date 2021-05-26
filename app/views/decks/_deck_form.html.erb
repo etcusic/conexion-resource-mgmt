@@ -23,23 +23,20 @@
 
         <tbody id="nested-cards-table" class="fields">
             <%= f.fields_for :cards do |ff| %>
-                <tr class="card-row" key=<%= ff.index %>>
-                    <td>
-                        <%= ff.text_field :english %>
-                    </td>
-                    <td>
-                        <%= ff.text_field :spanish %>
-                    </td>
-                </tr>
+                <%= render 'card_fields', ff: ff %>
+                
             <% end %>
         </tbody>
     </table>
     
+    <br>
 
+    <button>
+        <%= link_to_add_nested(f, :cards, '#nested-cards-table', partial_form_variable: :ff) %>
+    </button>
+
+    <br><br>
+    
     <%= f.submit "Submit Flash Cards" %>
     
 <% end %>
-
-<br><br>
-
-<button id="add-card-button">Add Card</button>

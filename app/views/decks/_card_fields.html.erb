@@ -1,0 +1,13 @@
+<tr class="card-row">
+    <td>
+        <%= ff.text_field :english %>
+    </td>
+    <td>
+        <%= ff.text_field :spanish %>
+    </td>
+    <td>
+        <button>
+            <%= link_to_remove_nested(ff, fields_wrapper_selector: 'card-row', link_text: "remove") %>
+        </button>
+    </td>
+</tr>

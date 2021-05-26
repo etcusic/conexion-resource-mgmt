@@ -30,6 +30,8 @@ gem 'pry'
 gem 'faker'
 gem 'dotenv-rails'
 
+gem 'vanilla_nested'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
