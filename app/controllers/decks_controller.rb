@@ -50,8 +50,4 @@ class DecksController < ApplicationController
         @deck = Deck.find_by_id(params[:id])
     end
 
-    def redirect_to_profile
-        redirect_to user_path(current_user)
-    end
-
 end

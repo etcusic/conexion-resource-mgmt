@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save   
             session[:user_id] = @user.id
-            redirect_to @user.url
+            redirect_to_profile
         else
             render :new
         end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
     def update
         if @user.update(user_params)
-            redirect_to @user.url
+            redirect_to_profile
         else 
             render :edit
         end

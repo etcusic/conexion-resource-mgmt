@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: session_params[:email])
         if @user && @user.authenticate(session_params[:password])
             initialize_session
-            redirect_to user_path(@user)
+            redirect_to_profile
         else
             # flash error is not working
             flash[:error] = "Invalid email or password. Please try again."
