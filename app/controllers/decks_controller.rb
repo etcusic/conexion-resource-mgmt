@@ -10,7 +10,7 @@ class DecksController < ApplicationController
     end
 
     def create  
-        @deck = Deck.new(deck_params)
+        @deck = current_user.decks.build(deck_params)
         if @deck.save
             redirect_to_profile
         else
