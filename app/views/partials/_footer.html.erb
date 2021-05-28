@@ -3,10 +3,15 @@
 <br><br>
 <button><%= link_to "Home Page", "/" %></button>
  | | 
-<button><%= link_to "Sign in here", "/login" %></button>
- | | 
-<button><%= link_to "Logout", "/logout" %></button>
- | | 
-<button><%= link_to "Profile Page", user_path(current_user) %></button>
- | | 
+
+<% if logged_in? %>
+    <button><%= link_to "Profile Page", user_path(current_user) %></button>
+     | | 
+    <button><%= link_to "Logout", "/logout", method: 'post' %></button>
+     | | 
+<% else %>
+    <button><%= link_to "Sign in here", "/login" %></button>
+     | | 
+<% end %>
+
 <button><%= link_to "Average Wait Time", "/wait_time" %></button>
