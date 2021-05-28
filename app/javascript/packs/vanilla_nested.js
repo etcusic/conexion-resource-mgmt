@@ -49,11 +49,10 @@
       let element = event.target;
       if (!element.classList.contains('vanilla-nested-remove'))
         element = element.closest('.vanilla-nested-remove')
-  
       const data = element.dataset;
       let wrapper = element.parentElement;
       if (sel = data.fieldsWrapperSelector) wrapper = element.closest(`.${sel}`); // adjusted code here
-      // if (sel = data.fieldsWrapperSelector) wrapper = element.closest(sel);    -- previous line => didn't account for class
+      // if (sel = data.fieldsWrapperSelector) wrapper = element.closest(sel);   // -- previous line => didn't account for class
   
       if (data.undoTimeout) {
         hideFieldsWithUndo(wrapper, element);
