@@ -241,6 +241,7 @@ def make_set (deck_name, array)
     array.each do |arr|
         deck.cards.build({english: arr[0], spanish: arr[1]}).save
     end
+	deck
 end
 
 def make_verb_sets(array)
