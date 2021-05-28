@@ -236,7 +236,8 @@ COMMON_AR_VERBS = [
 
 def make_set (deck_name, array)
     # deck = Deck.create(user_id: 1, name: deck_name, level: 1, admin_approved: true)
-	deck = GONZO.decks.build(name: deck_name, level: 1, admin_approved: true).save
+	deck = GONZO.decks.build(name: deck_name, level: 1, admin_approved: true)
+	deck.save
     array.each do |arr|
         deck.cards.build({english: arr[0], spanish: arr[1]}).save
     end
