@@ -2,7 +2,7 @@
 # rails g resource Deck name:string level:integer
 # rails g resource Card deck:belongs_to english:string spanish:string
 
-User.create(name: "Kermit Frog", email: "kermit_frog@gmail", password: "password", admin: true)
+GONZO = User.create(name: "Gonzo", email: "gonzo@gmail", password: "password", admin: true)
 
 ANIMALS_AND_BUGS = [
     [ "beak", "pico" ],
@@ -235,7 +235,8 @@ COMMON_AR_VERBS = [
 # Deck :name, :level || Card :english, :spanish, :set_id
 
 def make_set (deck_name, array)
-    deck = Deck.create(user_id: 1, name: deck_name, level: 1, admin_approved: true)
+    # deck = Deck.create(user_id: 1, name: deck_name, level: 1, admin_approved: true)
+	deck = GONZO.decks.build(name: deck_name, level: 1, admin_approved: true).save
     array.each do |arr|
         deck.cards.build({english: arr[0], spanish: arr[1]}).save
     end
@@ -273,5 +274,3 @@ make_set("around the house", AROUND_THE_HOUSE)
 make_set("cooking", COOKING)
 make_set("idioms", IDIOMS)
 make_verb_sets(COMMON_AR_VERBS)
-
-WaitTime.create(seconds: 10)
