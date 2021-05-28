@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     # skip_before_action :validate_user, only: [:new, :create, :show]
 
     def new
-        @user = new_user
+        @user = User.new
     end
 
     def create
@@ -35,6 +35,12 @@ class UsersController < ApplicationController
         current_user.destroy
         session.delete(:user_id)
         redirect_to '/'
+    end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:id, :email, :name, :password)
     end
 
 end
