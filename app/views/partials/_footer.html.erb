@@ -7,6 +7,8 @@
 <% if logged_in? %>
     <button><%= link_to "Profile Page", user_path(current_user) %></button>
      | | 
+    <button><%= link_to "Edit Profile", edit_user_path(current_user) %></button>
+     | | 
     <button><%= link_to "Logout", "/logout", method: 'post' %></button>
      | | 
 <% else %>
