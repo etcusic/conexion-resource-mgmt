@@ -1,3 +1,7 @@
 <h1>Edit Flash Card Set</h1>
 
 <%= render partial: "deck_form" %>
+
+<br><br>
+
+<button><%= link_to "Back to Deck", user_deck_path(current_user, @deck) %></button>
