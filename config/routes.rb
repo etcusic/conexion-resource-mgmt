@@ -16,4 +16,5 @@ Rails.application.routes.draw do
    
   get '/api/decks' => "api#decks"
 
+  get '/errors/invalid_user' => "errors#invalid_user"
 end

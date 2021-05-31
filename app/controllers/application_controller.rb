@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     add_flash_types :info, :error, :warning
     # before_action :require_login, except: [:home]
-    # before_action :validate_user, except: [:home]
+    before_action :validate_user, except: [:home]
     helper_method :current_user, :redirect_to_profile, :logged_in?, :users_stuff? 
 
     def home
@@ -31,9 +31,10 @@ class ApplicationController < ActionController::Base
     #     end
     # end
 
-    # def validate_user
-    #     if !users_stuff?
-    #         redirect_to "/nacho_stuff"
-    #     end
-    # end
+    def validate_user
+        if !users_stuff?
+            flash[:error] = "Invalid email or password. Please try again."
+            redirect_to "/errors/invalid_user"
+        end
+    end
 end
