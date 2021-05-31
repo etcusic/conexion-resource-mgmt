@@ -10,17 +10,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <header>
-    <%= render partial: 'partials/header'%>
-  </header>
 
   <body>
-    <%= yield %>
-    
+  
+      <header>
+        <%= render partial: 'partials/header'%>
+      </header>
+
+      <%= yield %>
+
+      <footer>
+        <%= render partial: 'partials/footer'%>
+      </footer>
+   
   </body>
 
-  <footer>
-    <%= render partial: 'partials/footer'%>
-  </footer>
+  
 
 </html>

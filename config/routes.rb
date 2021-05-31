@@ -7,14 +7,11 @@ Rails.application.routes.draw do
  
   # resources should go under users once added
   resources :users do 
-    resources :decks do 
-      resources :cards
-    end
+    resources :decks 
   end
   resources :decks, only: [:index]
-  resources :cards, only: [:index]
+  resources :errors, only: [:index]
    
   get '/api/decks' => "api#decks"
 
-  get '/errors/invalid_user' => "errors#invalid_user"
 end

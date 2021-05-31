@@ -1,8 +1,7 @@
 class ErrorsController < ApplicationController
     skip_before_action :validate_user
 
-    def invalid_user
-
+    def index
     end
 
 end

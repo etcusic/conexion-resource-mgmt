@@ -33,8 +33,8 @@ class ApplicationController < ActionController::Base
 
     def validate_user
         if !users_stuff?
-            flash[:error] = "Invalid email or password. Please try again."
-            redirect_to "/errors/invalid_user"
+            flash[:error] = "You are not authorized for the page requested."
+            redirect_to errors_path
         end
     end
 end
