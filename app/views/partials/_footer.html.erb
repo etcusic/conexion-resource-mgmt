@@ -1,17 +1,26 @@
 <br><br>
 -------------------
 <br><br>
+
 <button><%= link_to "Home Page", "/" %></button>
  | | 
-
-<% if logged_in? %>
+<%# links for visitor %>
+<% if logged_in? && session[:user_id] == 0 %>
+    <button><%= link_to "Sign in here", "/login" %></button>
+     | | 
+    <button><%= link_to "Sign up here", new_user_path %></button>
+<%# links for user %>
+<% elsif logged_in? %>
     <button><%= link_to "Profile Page", user_path(current_user) %></button>
      | | 
     <button><%= link_to "Edit Profile", edit_user_path(current_user) %></button>
      | | 
     <button><%= link_to "Logout", "/logout", method: 'post' %></button>
+<%# links for first coming to site %>
 <% else %>
     <button><%= link_to "Sign in here", "/login" %></button>
      | | 
     <button><%= link_to "Sign up here", new_user_path %></button>
+     | | 
+    <button><%= link_to "Enter as Visitor", "/visitor_login", method: 'post' %></button>
 <% end %>

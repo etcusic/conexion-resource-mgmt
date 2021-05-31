@@ -17,6 +17,12 @@ class SessionsController < ApplicationController
         end
     end
 
+    def visitor_login
+        # binding.pry
+        session[:user_id] = 0
+        redirect_to visitors_path
+    end
+
     def destroy
         session.delete(:user_id)
         redirect_to '/'
