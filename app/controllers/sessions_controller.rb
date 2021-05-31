@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-    # skip_before_action :require_login
     skip_before_action :validate_user
 
     def new
@@ -11,8 +10,7 @@ class SessionsController < ApplicationController
             initialize_session
             redirect_to_profile
         else
-            # flash error is not working
-            flash[:error] = "Invalid email or password. Please try again."
+            # add error to handle this event
             redirect_to '/login'
         end
     end
