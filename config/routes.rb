@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'visitors/index'
+
   root 'application#home'
 
   get '/login' => 'sessions#new'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users do 
     resources :decks 
   end
-  resources :decks, only: [:index]  #=> adjust what deck paths anyone can see
+  
   resources :visitors, only: [:index]
   resources :errors, only: [:index]
    

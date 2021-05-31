@@ -32,4 +32,5 @@ class ApplicationController < ActionController::Base
             redirect_to errors_path
         end
     end
+    
 end
