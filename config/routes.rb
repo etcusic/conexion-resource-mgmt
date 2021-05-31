@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
-  post '/visitor_login' => 'sessions#visitor_login'
  
   # resources should go under users once added
   resources :users do 

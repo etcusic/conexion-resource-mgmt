@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
-  before_action :current_user, :validate_user 
+  skip_before_action :validate_user, :require_login
   
   def index
   end
