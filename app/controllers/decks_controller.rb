@@ -38,14 +38,21 @@ class DecksController < ApplicationController
         redirect_to_profile
     end
 
-    def scoped
+    def search
         @users = User.all
         @decks = Deck.all
     end
 
     def find_scoped
-        binding.pry
+        # binding.pry
         redirect_to "/decks/scoped"
+    end
+
+    def scoped
+        # binding.pry
+        @users = User.all
+        @decks = Deck.all
+        @scoped_decks = Deck.scoped_decks(scoped_params)
     end
 
     private 

@@ -16,7 +16,11 @@ class Deck < ApplicationRecord
     end
 
     def self.scoped_decks(params)
-        binding.pry
+        if !params[:admin_approved]
+            self.all
+        else
+            binding.pry
+        end
     end
 
 end
