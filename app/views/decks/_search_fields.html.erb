@@ -1,3 +1,4 @@
+<%# binding.pry %>
 <%= form_tag '/decks/scoped', method: 'post' do %>
   
     <label>Approved: </label>
@@ -7,7 +8,7 @@
     <label>Level: </label>
     <%= select_tag 'level', options_for_select(["1", "2", "3", "4", "5", "6", "7"]), include_blank: "All" %><br>
 
-    <label>User: </label>
+    <label>User: </label> 
     <%= select_tag 'user_id', options_for_select(@users.collect{ |u| [u.name, u.id] }), include_blank: "All" %><br>
     
     <br>
