@@ -15,4 +15,8 @@ class Deck < ApplicationRecord
         @deck
     end
 
+    def self.scoped_decks(params)
+        binding.pry
+    end
+
 end

@@ -1,5 +1,6 @@
 class DecksController < ApplicationController
     before_action :deck, only: [:show, :edit, :update, :destroy]
+    skip_before_action :validate_user, only: [:scoped]
     
     def index
         @decks = Deck.all
@@ -37,13 +38,27 @@ class DecksController < ApplicationController
         redirect_to_profile
     end
 
+    def scoped
+        @users = User.all
+        @decks = Deck.all
+    end
+
+    def find_scoped
+        binding.pry
+        redirect_to "/decks/scoped"
+    end
+
     private 
 
     def deck_params
         params.require(:deck).permit(
-            :name, :level, :admin_approved,
+            :name, :level, :admin_approved, :user_id,
             cards_attributes: [ :id, :english, :spanish, :_destroy ],
           )
+    end
+
+    def scoped_params
+        params.permit(:admin_approved, :level, :user_id)
     end
 
     def deck

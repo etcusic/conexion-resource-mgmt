@@ -27,7 +27,8 @@ class ApplicationController < ActionController::Base
     # validate admin
 
     def validate_user
-        if !users_stuff?
+        # remove admin aspect
+        if !users_stuff? && !current_user.admin
             flash[:error] = "You are not authorized for the page requested."
             redirect_to errors_path
         end

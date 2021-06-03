@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   resources :users do 
     resources :decks 
   end
-  
+
+  get '/decks/scoped' => "decks#scoped"
+  post '/decks/scoped' => "decks#find_scoped"
+  resources :decks #=> should any be excluded? - maybe :new?
+
   resources :visitors, only: [:index]
   resources :errors, only: [:index]
    
