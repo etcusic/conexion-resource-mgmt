@@ -7,9 +7,9 @@ class DeckSearch
         @user_id = ""
     end
 
-    def update_deck_search(params)
-        binding.pry
-        hash.each{|key, value| self.send(("#{key}="), value)}
+    def update(params)
+        params.each{|key, value| self.send(("#{key}="), value)}
+        self
     end
 
     def decks 

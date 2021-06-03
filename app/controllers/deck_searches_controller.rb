@@ -7,7 +7,9 @@ class DeckSearchesController < ApplicationController
     end
 
     def update
+        @deck_search = @deck_search.update(deck_search_params)
         binding.pry
+        redirect_to deck_search_path(@deck_search)
     end
 
     private
@@ -17,7 +19,8 @@ class DeckSearchesController < ApplicationController
     end
 
     def deck_search
-        @deck_search ||= DeckSearch.new 
+
+        @deck_search ||= DeckSearch.new
     end
 
 end
