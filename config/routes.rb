@@ -11,11 +11,10 @@ Rails.application.routes.draw do
     resources :decks 
   end
 
-  get '/decks/search' => "decks#search"
-  post '/decks/scoped' => "decks#find_scoped"
-  get '/decks/scoped' => "decks#scoped"
+  get '/deck_search' => "deck_searches#show"
+  post '/deck_search' => "deck_searches#update"
   resources :decks #=> should any be excluded? - maybe :new?
-  resources :deck_searches, only: [:new, :show, :update]
+  # resources :deck_searches, only: [:new, :show, :update]
 
   resources :visitors, only: [:index]
   resources :errors, only: [:index]

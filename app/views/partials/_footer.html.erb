@@ -12,7 +12,10 @@
      | | 
     <button><%= link_to "Logout", "/logout", method: 'post' %></button>
      | | 
-    <button><%= link_to "Admin Search Decks", new_deck_search_path %></button>
+    <button>
+        <button><%= link_to "Admin Search Decks", "/deck_search", method: 'get' %></button>
+        <%#= link_to "Admin Search Decks", new_deck_search_path %>
+    </button>
 <% else %>
     <button><%= link_to "Sign in here", "/login" %></button>
      | | 
