@@ -1,0 +1,13 @@
+<h1>/deck_search/show</h1>
+
+<%= render partial: "form" %>
+
+<br>
+
+<ul>
+
+    <% @decks.map do |deck| %>
+        <li><%= deck.name %></li>
+    <% end %>
+
+</ul>

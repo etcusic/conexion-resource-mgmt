@@ -16,11 +16,10 @@ class Deck < ApplicationRecord
     end
 
     def self.scoped_decks(params)
-        if !params[:admin_approved]
-            self.all
-        else
-            binding.pry
-        end
+        @decks = []
+        !params[:admin_approved] || params[:admin_approved] == "" ? @decks = self.all : @decks = self.where("admin_approved = #{params[:admin_approved]}")
+        binding.pry
+        @decks
     end
 
 end

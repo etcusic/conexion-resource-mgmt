@@ -1,7 +1,7 @@
 class DecksController < ApplicationController
     before_action :deck, only: [:show, :edit, :update, :destroy]
     before_action :all_users, only: [:search, :scoped]
-    before_action :scoped_decks, only: [:scoped]
+    # before_action :scoped_decks, only: [:scoped]
     skip_before_action :validate_user, only: [:scoped]
     
     def index
@@ -44,13 +44,15 @@ class DecksController < ApplicationController
     end
 
     def find_scoped
-        binding.pry
+        # binding.pry
+        # @decks = Deck.scoped_decks(scoped_params)
+        @deck_search = DeckSearch.new(scoped_params)
         redirect_to "/decks/scoped"
     end
 
     def scoped
-        # binding.pry
-        @scoped_decks = Deck.scoped_decks(scoped_params)
+        @decks ||= Deck.scoped_decks(scoped_params)
+        binding.pry
     end
 
     private 

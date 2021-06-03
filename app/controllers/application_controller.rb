@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     add_flash_types :info, :error, :warning
     before_action :validate_user, except: [:home]
-    helper_method :current_user, :redirect_to_profile, :logged_in?, :users_stuff? 
+    helper_method :current_user, :redirect_to_profile, :logged_in?, :users_stuff?, :validate_admin
 
     def home
     end
@@ -24,11 +24,15 @@ class ApplicationController < ActionController::Base
         session[:user_id] == params[:id].to_i
     end
 
-    # validate admin
+    def validate_admin
+        if !current_user.admin
+            flash[:error] = "You are not authorized for the page requested."
+            redirect_to errors_path
+        end
+    end
 
     def validate_user
-        # remove admin aspect
-        if !users_stuff? && !current_user.admin
+        if !users_stuff?
             flash[:error] = "You are not authorized for the page requested."
             redirect_to errors_path
         end
