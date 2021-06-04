@@ -4,7 +4,7 @@ class DeckSearchesController < ApplicationController
     before_action :initialize_search
 
     def show
-        binding.pry
+        # binding.pry
     end
 
     private
