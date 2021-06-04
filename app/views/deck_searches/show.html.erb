@@ -1,11 +1,12 @@
 <h1>/deck_search/show</h1>
 
-<%= render partial: "search_fields" %>
+<%#= render partial: "search_fields" %>
+<%= render partial: "js_search_page" %>
 
 <br>
 
 <% if @deck_search.decks.length == 0 %>
     <h3>Sorry, no decks match that search.</h3>
 <% else %>  
-    <%= render partial: "deck_table" %>
+    <%#= render partial: "deck_table" %>
 <% end %>

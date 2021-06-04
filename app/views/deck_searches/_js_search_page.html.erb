@@ -1,0 +1,30 @@
+<label>Admin Approved: </label>
+<select></select><br>
+
+<label>Level: </label>
+<select></select><br>
+
+<label>User: </label>
+<select></select><br>
+
+<table>
+    <thead>
+        <tr>
+            <td>Deck Title: </td>
+            <td>Approved: </td>
+            <td>Level: </td>
+            <td>Creator: </td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @deck_search.decks.map do |deck| %>
+            <tr class="deck-row">
+                <td class="deck-name"><%= link_to deck.name, deck_path(deck) %></td>
+                <td class="deck-admin"><%= deck.admin_approved ? "Yes" : "No" %></td>
+                <td class="deck-level"><%= deck.level %></td>
+                <td class="deck-user"><%= deck.user.name %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
