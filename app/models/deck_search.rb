@@ -28,8 +28,4 @@ class DeckSearch
         self.user_id == "" ? decks_array : decks_array.where("user_id = #{self.user_id}")
     end
 
-    def all_users
-        User.all
-    end
-
 end
