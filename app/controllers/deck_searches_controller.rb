@@ -11,11 +11,12 @@ class DeckSearchesController < ApplicationController
         params.permit(:admin_approved, :level, :user_id)
     end
 
+    def search_params?
+        deck_search_params != {}
+    end
+
     def initialize_search
-        admin = deck_search_params[:admin_approved] ? deck_search_params[:admin_approved] : ""
-        level = deck_search_params[:level] ? deck_search_params[:level] : ""
-        user_id = deck_search_params[:user_id] ? deck_search_params[:user_id] : ""
-        @deck_search = DeckSearch.new(admin, level, user_id)
+        @deck_search = search_params? ? DeckSearch.new(deck_search_params) : DeckSearch.new
     end
 
 end

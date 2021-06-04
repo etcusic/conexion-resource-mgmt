@@ -1,10 +1,14 @@
 class DeckSearch
     attr_accessor :admin_approved, :level, :user_id
 
-    def initialize(admin_approved="", level="", user_id="")
-        @admin_approved = admin_approved
-        @level = level
-        @user_id = user_id
+    DEFAULT_ATTRS = {
+        admin_approved: "",
+        level: "", 
+        user_id: ""
+    }
+
+    def initialize(attributes=DEFAULT_ATTRS)
+        attributes.each{ |key, value| self.send("#{key}=", value) }
     end
 
     def decks 
