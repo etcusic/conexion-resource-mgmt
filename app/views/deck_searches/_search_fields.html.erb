@@ -1,6 +1,5 @@
-<%# binding.pry %>
 <%= form_tag '/deck_search', method: 'get' do %>
-<%# NEED PRESELECTED FIELDS %>
+
     <label>Approved: </label>
     <%= select_tag 'admin_approved', options_for_select([ ["Admin Approved", true], ["Not Admin Approved", false] ], @deck_search.admin_approved), include_blank: "All" %><br>
 

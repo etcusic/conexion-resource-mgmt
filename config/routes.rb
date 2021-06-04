@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
  
-  # resources should go under users once added
   resources :users do 
     resources :decks 
   end
 
   get '/deck_search' => "deck_searches#show"
+
+  #=> NEED TO ENCORPORATE ADMIN EDITING ABILITIES HERE
   resources :decks #=> should any be excluded? - maybe :new?
 
   resources :visitors, only: [:index]
