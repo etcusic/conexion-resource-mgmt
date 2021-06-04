@@ -4,10 +4,8 @@
 
 <br>
 
-<ul>
-
-    <% @deck_search.decks.map do |deck| %>
-        <li><%= deck.name %></li>
-    <% end %>
-
-</ul>
+<% if @deck_search.decks.length == 0 %>
+    <h3>Sorry, no decks match that search.</h3>
+<% else %>  
+    <%= render partial: "deck_table" %>
+<% end %>
