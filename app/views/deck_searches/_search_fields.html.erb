@@ -1,6 +1,6 @@
 <%# binding.pry %>
-<%= form_tag '/decks/scoped', method: 'post' do %>
-  
+<%= form_tag '/deck_search', method: 'get' do %>
+<%# NEED PRESELECTED FIELDS %>
     <label>Approved: </label>
     <%= select_tag 'admin_approved', options_for_select(["Admin Approved", "Not Admin Approved" ]), include_blank: "All" %><br>
 
@@ -9,7 +9,7 @@
     <%= select_tag 'level', options_for_select(["1", "2", "3", "4", "5", "6", "7"]), include_blank: "All" %><br>
 
     <label>User: </label> 
-    <%= select_tag 'user_id', options_for_select(@users.collect{ |u| [u.name, u.id] }), include_blank: "All" %><br>
+    <%= select_tag 'user_id', options_for_select(@deck_search.users.collect{ |u| [u.name, u.id] }), include_blank: "All" %><br>
     
     <br>
     

@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
     def validate_admin
         if !current_user.admin
-            flash[:error] = "You are not authorized for the page requested."
+            flash[:error] = "You are not authorized for the page requested. This section is only for Administrators."
             redirect_to errors_path
         end
     end
