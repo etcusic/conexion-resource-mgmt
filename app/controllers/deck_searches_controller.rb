@@ -1,5 +1,4 @@
 class DeckSearchesController < ApplicationController
-    skip_before_action :validate_user
     before_action :validate_admin
     before_action :initialize_search
 
