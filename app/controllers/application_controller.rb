@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
     add_flash_types :info, :error, :warning
-    before_action :validate_user, except: [:home]
-    helper_method :current_user, :redirect_to_profile, :logged_in?, :users_stuff?, :validate_admin
+    helper_method :current_user, :redirect_to_profile, :logged_in?, :users_stuff?, :validate_user, :validate_admin
 
     def home
     end
