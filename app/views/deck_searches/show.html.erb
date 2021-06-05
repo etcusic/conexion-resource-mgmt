@@ -1,13 +1,13 @@
-<h1>/deck_search/show</h1>
+<h1>Search Decks: </h1>
 
-<%= render partial: "search_fields" %>
-<%#= render partial: "js_search_page" %>
+<%#= render partial: "search_fields" %>
+<%= render partial: "js_search_page" %>
 
 <br>
 
 <% if @deck_search.decks.length == 0 %>
     <h3>Sorry, no decks match that search.</h3>
 <% else %>  
-    <%# <h2>UNCOMMENT TABLE PARTIAL</h2> %>
-    <%= render partial: "deck_table" %>
+     <h2>UNCOMMENT TABLE PARTIAL</h2>
+    <%#= render partial: "deck_table" %>
 <% end %>
