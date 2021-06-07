@@ -1,14 +1,14 @@
 <%# YOU ARE HERE - FILL OUT SELECT TAGS AND CREATE JS LOGIC TO FILTER OUT APPROPRIATE DECKS - use element.hidden = true ??? %>
 
 <label>Admin Approved: </label>
-<select>
+<select id="admin-select">
     <option value="All">All</option>
-    <option value="true">Approved</option>
-    <option value="false">Not Approved</option>
+    <option value="Yes">Approved</option>
+    <option value="No">Not Approved</option>
 </select>
 <br>
 <label>Level: </label>
-<select>
+<select id="level-select">
     <option value="All">All</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -20,14 +20,14 @@
 </select>
 <br>
 <label>User: </label>
-<select>
+<select id="user-select">
     <option value="All">All</option>
     <% User.all.map do |user| %>
         <option value=<%= user.id %>><%= user.name %></option>
     <% end %>
 </select>
 <br><br>
-<button>Submit Search</button>
+<button id="search-button">Submit Search</button>
 <br><br><br>
 <table>
     <thead>
@@ -45,7 +45,7 @@
                 <td class="deck-name"><%= link_to deck.name, deck_path(deck) %></td>
                 <td class="deck-admin"><%= deck.admin_approved ? "Yes" : "No" %></td>
                 <td class="deck-level"><%= deck.level %></td>
-                <td class="deck-user"><%= deck.user.name %></td>
+                <td class="deck-user" data-user-id=<%= deck.user.id %>><%= deck.user.name %></td>
             </tr>
         <% end %>
     </tbody>

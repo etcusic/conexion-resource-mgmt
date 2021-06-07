@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import './vanilla_nested.js'
+import './deck_search.js'
 
 Rails.start()
 Turbolinks.start()
