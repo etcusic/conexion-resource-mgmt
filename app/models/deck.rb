@@ -1,15 +1,9 @@
 class Deck < ApplicationRecord
     belongs_to :user
     has_many :cards, dependent: :destroy
-    validates :name, presence: true, uniqueness: true, :length => {:maximum => 50} # currently does not validate presence of level - should implement this for admin approved decks, though
+    validates :name, presence: true, uniqueness: true, :length => {:maximum => 50} 
     validates :cards, :presence => true, :length => {:minimum => 3, :maximum => 50}
     accepts_nested_attributes_for :cards, allow_destroy: true
-    # max number of characters for name
-    # max number of characters for cards too
-    # minimum number of cards
-    # no deck name duplicates per user
-    # no card duplicates in deck
-    # reject_if_empty 
     # admin clones a deck rather than edits existing => send an alert if original deck is edited; give option to update accordingly
 
     def with_cards
