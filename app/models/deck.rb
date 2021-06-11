@@ -3,6 +3,12 @@ class Deck < ApplicationRecord
     has_many :cards, dependent: :destroy
     validates :name, presence: true
     accepts_nested_attributes_for :cards, allow_destroy: true
+    # max number of characters for name
+    # max number of characters for cards too
+    # minimum number of cards
+    # no deck name duplicates per user
+    # no card duplicates in deck
+    # admin clones a deck rather than edits existing => send an alert if original deck is edited; give option to update accordingly
 
     def with_cards
         @deck = {
@@ -18,7 +24,6 @@ class Deck < ApplicationRecord
     def self.scoped_decks(params)
         @decks = []
         !params[:admin_approved] || params[:admin_approved] == "" ? @decks = self.all : @decks = self.where("admin_approved = #{params[:admin_approved]}")
-        binding.pry
         @decks
     end
 

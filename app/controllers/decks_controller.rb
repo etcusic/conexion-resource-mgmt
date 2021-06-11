@@ -43,7 +43,7 @@ class DecksController < ApplicationController
     def deck_params
         params.require(:deck).permit(
             :name, :level, :admin_approved, :user_id,
-            cards_attributes: [ :id, :english, :spanish, :_destroy ],
+            cards_attributes: [ :id, :english, :spanish, :_destroy ]
           )
     end
 
