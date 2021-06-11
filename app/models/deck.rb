@@ -1,7 +1,7 @@
 class Deck < ApplicationRecord
     belongs_to :user
     has_many :cards, dependent: :destroy
-    validates :name, presence: true # currently does not validate presence of level - should implement this for admin approved decks, though
+    validates :name, presence: true, uniqueness: true, :length => {:maximum => 50} # currently does not validate presence of level - should implement this for admin approved decks, though
     validates :cards, :presence => true, :length => {:minimum => 3, :maximum => 50}
     accepts_nested_attributes_for :cards, allow_destroy: true
     # max number of characters for name
@@ -28,5 +28,5 @@ class Deck < ApplicationRecord
         !params[:admin_approved] || params[:admin_approved] == "" ? @decks = self.all : @decks = self.where("admin_approved = #{params[:admin_approved]}")
         @decks
     end
-
+    
 end
