@@ -13,8 +13,10 @@ class DecksController < ApplicationController
     def create  
         @deck = current_user.decks.build(deck_params)
         if @deck.save
+            binding.pry
             redirect_to_profile
         else
+            binding.pry
             render :new
         end
     end
@@ -27,8 +29,10 @@ class DecksController < ApplicationController
 
     def update
         if @deck.update(deck_params)
+            binding.pry
             redirect_to_profile
         else
+            binding.pry
             render :edit
         end
     end
