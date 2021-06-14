@@ -13,14 +13,12 @@ class AdminDeck < Deck
         @admin_deck
     end
 
-    def original_deck
-
+    def find_original
+        Deck.find_by_id(self.original_deck)
     end
 
     def original_creator
-
+        self.find_original.user
     end
-
-
 
 end
