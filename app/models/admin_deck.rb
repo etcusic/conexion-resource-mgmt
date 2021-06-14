@@ -9,7 +9,7 @@ class AdminDeck < Deck
             original_deck: deck_object.id
         }
         @admin_deck = self.new(deck_hash)
-        deck_object.cards.each{|card| @admin_deck.cards.build({english: card.english, spanish: card.spanish})}
+        deck_object.cards.each{|card| @admin_deck.cards.build({ english: card.english, spanish: card.spanish })}
         @admin_deck
     end
 

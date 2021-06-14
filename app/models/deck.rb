@@ -1,7 +1,7 @@
 class Deck < ApplicationRecord
     belongs_to :user
     has_many :cards, dependent: :destroy
-    validates :name, presence: true, uniqueness: true, :length => {:maximum => 50} 
+    validates :name, presence: true, :length => {:maximum => 50} 
     validates :cards, :presence => true, :length => {:minimum => 3, :maximum => 50}
     accepts_nested_attributes_for :cards, allow_destroy: true
     # admin clones a deck rather than edits existing => send an alert if original deck is edited; give option to update accordingly
