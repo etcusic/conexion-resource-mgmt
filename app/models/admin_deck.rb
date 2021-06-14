@@ -1,15 +1,16 @@
 class AdminDeck < Deck
+    # need to validate that user is admin
 
-    def self.create_from_existing(@deck)
-        
-    end
-
-    def prep_deck(@deck)
-        deck_hash = @deck.as_json
-        deck_hash.delete("id")
-        deck_hash["original_id"] = @deck.id
-        deck_hash["cards"].map{ |card| { english: card["english"], spanish: card["spanish"] } }
-        deck_hash
+    def self.new_from_existing(deck_object, admin_id)
+        deck_hash = {
+            name: deck_object.name,
+            level: deck_object.level,
+            user_id: admin_id,
+            original_deck: deck_object.id
+        }
+        @admin_deck = self.new(deck_hash)
+        deck_object.cards.each{|card| @admin_deck.cards.build({english: card.english, spanish: card.spanish})}
+        @admin_deck
     end
 
     def original_deck
