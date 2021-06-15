@@ -1,0 +1,9 @@
+<h1>Admin Approved Decks:</h1>
+
+<ul>
+<% @admin_decks.map do |deck| %>
+    <li>
+        <%= link_to deck.name, admin_deck_path(deck) %>
+    </li>
+<% end %>
+</ul>

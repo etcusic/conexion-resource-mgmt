@@ -2,6 +2,7 @@ class AdminDecksController < ApplicationController
     before_action :admin_deck, only: [:show, :edit, :update, :destroy]
 
     def index
+        @admin_decks = AdminDeck.all
     end
 
     def new
@@ -42,7 +43,7 @@ class AdminDecksController < ApplicationController
     end
 
     def admin_deck
-        @admin_deck = Deck.find_by_id(params[:id])
+        @admin_deck = AdminDeck.find_by_id(params[:id])
     end
 
 end
