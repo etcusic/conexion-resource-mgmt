@@ -1,0 +1,11 @@
+<h1><%= @user.name %></h1>
+<h2>Flash Card Sets:</h2>
+<% @user.decks.map do |deck| %>
+    <li>
+        <%= link_to deck.name, user_deck_path(@user, deck) %>
+    </li>
+<% end %>
+
+
+<br><br>
+<button><%= link_to "Create Set", new_user_deck_path(@user) %></button>
