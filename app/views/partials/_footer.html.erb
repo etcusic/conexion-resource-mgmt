@@ -11,8 +11,6 @@
     <button><%= link_to "Edit Profile", edit_user_path(current_user) %></button>
      | | 
     <button><%= link_to "Logout", "/logout", method: 'post' %></button>
-     | | 
-    <button><%= link_to "Admin Search Decks", "/deck_search", method: 'get' %></button>
 <% else %>
     <button><%= link_to "Sign in here", "/login" %></button>
      | | 
