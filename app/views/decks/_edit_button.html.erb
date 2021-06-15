@@ -1,0 +1,10 @@
+<button><%= link_to "Edit Set", edit_user_deck_path(@deck.user, @deck) %></button>
+
+<br><br>
+    
+<button>
+    <%= link_to "Delete Set", [current_user, @deck], method: 'delete', data: { confirm: "Are you sure?" } %>
+</button>
+
+<br><br>
+  

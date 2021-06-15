@@ -19,14 +19,11 @@
 </table>
 
 <br><br>
-<button><%= link_to "Edit Set", edit_user_deck_path(@deck.user, @deck) %></button>
 
-<br><br>
+<% if @deck.user == @user %>
+    <%= render partial: "edit_button" %>
+<% end %>
 
--- OR --
-
-<br><br>
-    
-<button>
-    <%= link_to "Delete Set", [current_user, @deck], method: 'delete', data: { confirm: "Are you sure?" } %>
-</button>
+<% if @user.admin %>
+    <%= render partial: "clone_button" %>
+<% end %>
