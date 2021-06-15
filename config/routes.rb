@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   get '/deck_search' => "deck_searches#show"
+  get '/admin_resources' => "admin_resources#show"
 
   #=> NEED TO ENCORPORATE ADMIN EDITING ABILITIES HERE
   resources :decks #=> should any be excluded? - maybe :new?
