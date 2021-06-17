@@ -1,6 +1,6 @@
 <h2><%= @deck.name %></h2>
 <h4>Level: <%= @deck.level %></h4>
-<h4>Admin Approved: <%= @deck.admin_approved ? "TRUE" : "FALSE" %></h4>
+<h4>Admin Approved: <%= @deck.admin_cloned? ? "TRUE" : "FALSE" %></h4>
 
 <table>
     <tbody>
@@ -24,8 +24,10 @@
     <%= render partial: "edit_button" %>
 <% end %>
 
-<% if @user.admin && !@deck.admin_cloned? %>
-    <%= render partial: "clone_button" %>
-<% elsif @user.admin && @deck.admin_cloned? %>
-    <h3>- Already Cloned -</h3>
+<% if @user.admin %>
+    <%= if @deck.admin_cloned? %>
+        <h3>- Already Cloned -</h3>
+    <% else %>
+        <%= render partial: "clone_button" %>
+    <% end %>
 <% end %>
