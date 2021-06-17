@@ -15,5 +15,9 @@ class Deck < ApplicationRecord
         self.cards.each{ |card| @deck[:cards] << { id: card.id, english: card.english, spanish: card.spanish } }
         @deck
     end
+
+    def admin_cloned?
+        AdminDeck.find_by(original_deck: self.id) ? true : false
+    end
     
 end

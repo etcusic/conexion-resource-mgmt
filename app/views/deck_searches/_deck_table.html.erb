@@ -5,6 +5,7 @@
             <td>Approved: </td>
             <td>Level: </td>
             <td>Creator: </td>
+            <td>Admin Cloned: </td>
         </tr>
     </thead>
 
@@ -15,6 +16,7 @@
                 <td><%= deck.admin_approved ? "Yes" : "No" %></td>
                 <td><%= deck.level %></td>
                 <td><%= deck.user.name %></td>
+                <td><%= deck.admin_cloned? ? "yes" : "no" %></td>
             </tr>
         <% end %>
     </tbody>
