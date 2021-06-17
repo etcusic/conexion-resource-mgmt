@@ -11,6 +11,10 @@
     <button><%= link_to "Edit Profile", edit_user_path(current_user) %></button>
      | | 
     <button><%= link_to "Logout", "/logout", method: 'post' %></button>
+    <% if current_user.admin %>
+         | | 
+        <button><%= link_to "Admin Resources", '/admin_resources', method: 'get' %></button>
+    <% end %>
 <% else %>
     <button><%= link_to "Sign in here", "/login" %></button>
      | | 
