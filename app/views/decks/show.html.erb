@@ -24,6 +24,8 @@
     <%= render partial: "edit_button" %>
 <% end %>
 
-<% if @user.admin %>
+<% if @user.admin && !@deck.admin_cloned? %>
     <%= render partial: "clone_button" %>
+<% elsif @user.admin && @deck.admin_cloned? %>
+    <h3>- Already Cloned -</h3>
 <% end %>

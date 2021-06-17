@@ -1,5 +1,5 @@
 class AdminDeck < Deck
-    # need to validate that user is admin
+    validates :original_deck, uniqueness: true
 
     def self.new_from_existing(deck_object, admin_id)
         deck_hash = {
