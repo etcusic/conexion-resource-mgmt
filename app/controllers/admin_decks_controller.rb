@@ -15,10 +15,6 @@ class AdminDecksController < ApplicationController
         end
     end
 
-    def create
-        binding.pry
-    end
-
     def show
     end
 
@@ -26,9 +22,12 @@ class AdminDecksController < ApplicationController
     end
 
     def update
+        binding.pry
     end
 
     def destroy
+        @admin_deck.destroy
+        redirect_to '/admin_resources'
     end
 
     private
