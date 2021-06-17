@@ -22,18 +22,25 @@ class AdminDecksController < ApplicationController
     end
 
     def update
-        binding.pry
+        if @admin_deck.update(admin_deck_params)
+            redirect_to admin_decks_path
+        else
+            render :edit
+        end
     end
 
     def destroy
         @admin_deck.destroy
-        redirect_to '/admin_resources'
+        redirect_to admin_decks_path
     end
 
     private
 
     def admin_deck_params
-
+        params.require(:admin_deck).permit(
+            :name, :level,
+            cards_attributes: [ :id, :english, :spanish, :_destroy ]
+          )
     end
 
     def new_admin_deck

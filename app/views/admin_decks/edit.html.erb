@@ -1,1 +1,38 @@
-<h1><%= @admin_deck.name %></h1>
+<h2>Edit: <%= @admin_deck.name %></h2>
+
+<%= form_with model: @admin_deck, local: true do |f| %>
+    <%= f.label :name, "Name: " %>
+    <%= f.text_field :name %>
+
+    <%= f.label :level, "Level: " %>
+    <%= f.number_field :level, in: 1..8, step: 1 %>
+
+    <br><br>
+
+    <h3><strong>CARDS:</strong></h3>
+    <table>
+        <thead>
+            <tr>
+                <td>English:</td>
+                <td>Spanish:</td>
+            </tr>
+        </thead>
+
+        <tbody id="nested-cards-table" class="fields">
+            <%= f.fields_for :cards do |ff| %>
+                <%= render 'card_fields', ff: ff %>
+            <% end %>
+        </tbody>
+    </table>
+    
+    <br>
+
+    <button>
+        <%= link_to_add_nested(f, :cards, '#nested-cards-table', partial_form_variable: :ff) %>
+    </button>
+
+    <br><br>
+    
+    <%= f.submit "Submit Flash Cards" %>
+    
+<% end %>
